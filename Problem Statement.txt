@@ -1,0 +1,37 @@
+
+= Here is your Project Statement:
+  + Build a sales order application.
+  + The application has the ability to:
+    - list sales orders,
+    - create a new sales order,
+    - update the sales order details and
+    - delete a sales order.
+  + Ensure that these functionalities are available only after logging in to the application.
+
+= Team:
+  + Aman,
+  + Sharath
+
+= Technical requirements:
+  + Spring Boot,
+  + MongoDB,
+  + Angular,
+  + React Data Grid
+
+
+= READ THESE INSTRUCTIONS CAREFULLY BEFORE YOU BEGIN:
+
+  + The entire submission compressed should not cross 5MB per team.
+  + Include a README which clearly indicates how to get the project to work.
+  + Ensure that the roles of the members of the project is clearly mentioned in the README.
+  + You are expected to submit your project before 7pm on Sunday, Dec 2nd 2018.
+
+  + Plan your time well!
+  + Divide your work between the members so that you make the most of your available time.
+  + Focus on getting the end to end project working first (even a Hello World will do) - then incrementally add features. 
+  + A functioning project is better than trying to achieve everything and you are not able to build even a partially functioning application before the deadline.
+  + The project needs to be hosted in Github and there should be periodic Git commits from both the team members starting from today.
+  + A course on Git is added to your dashboard to help you learn the basics.
+  + Ensure that binary files, temporary files, auto-generated files are not checked into Git.
+  + Additional points for a neatly organized directory structure, code quality, well documented code, well defined Git commit messages.
+  + The process to submit your code will be informed separately.
