@@ -1,0 +1,20 @@
+<div class="container create-page">
+	
+
+<h1>Create Sales Order:</h1>
+<hr>
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <span>Name:</span><input class="input-group" type="text" id="name" required [(ngModel)]="salesOrder.name" name="name" placeholder="Name">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button (click)="newSalesOrder()" class="btn">Add New</button>
+</div>
+</div>

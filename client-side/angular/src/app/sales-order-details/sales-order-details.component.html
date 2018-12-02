@@ -1,0 +1,39 @@
+<div>
+	<table>
+		<tbody>
+			<tr *ngIf="salesOrder">
+				<td class="first-td">{{ salesOrder.id }}</td>
+				<td><input type="text" [(ngModel)] = "salesOrder.name"  [disabled]="!isEditable"></td>
+				<!-- <td><button (click)='viewSalesOrder()' class="btn btn-primary" (click)="toggle()">View</button></td> -->
+				<td><button (click)='deleteSalesOrder()' class="btn btn-danger">Delete</button></td> 
+				<td>
+					<button (click)="isEditable=!isEditable" class="btn btn-warning" *ngIf="!isEditable">Edit</button>
+					<button *ngIf="isEditable" (click)='saveSalesOrder()' class="btn btn-success">Save</button>
+				</td>
+				<td><span *ngIf="isEditable">Click and edit the required field.</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<ng-container *ngIf="show">
+<div class="expanded-table">
+	<table>
+		<thead>
+			<tr>
+				<th>Product Name</th>
+				<th>Type</th>
+				<th>Size</th>
+				<th>Price</th>
+				<th>Status</th>
+				<th>Quantity</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+	</table>
+	<div *ngFor="let product of salesOrders.products | async" class="product-div">
+	  <product-details [product]='product'></product-details>
+	</div>
+	<a href="http://localhost:8080/api/salesorder/">http://localhost:8080/api/salesorder/--enter id here--</a>
+</div>
+</ng-container>

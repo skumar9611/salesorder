@@ -1,0 +1,44 @@
+tr td:nth-child(-n+2)
+{
+	min-width: 300px;
+	padding: 5px;
+	margin: 5px;
+}
+tr td:nth-child(n+3)
+{
+	padding: 5px;
+	margin: 5px;
+}
+.first-td
+{
+	border-right: 1px solid grey;
+}
+.expanded-table
+{
+	border: 1px solid black;
+	margin: 10px auto;
+}
+tr th
+{
+	width: 12.5%;
+	padding: 5px;
+	margin: 5px;
+	border-bottom: 1px solid grey;
+}
+th:not(:last-child)
+{
+	border-right: 1px solid grey;
+}
+tr th:first-child
+{
+	min-width: 150px;
+}
+input
+{
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}

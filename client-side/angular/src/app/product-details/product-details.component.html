@@ -1,0 +1,16 @@
+<div>
+	<table>
+		<tbody>
+			<tr *ngIf="product">
+				<td>{{ product.name }}</td>
+				<td>{{ product.type }}</td>
+				<td>{{ product.size }}</td>
+				<td>{{ product.price }}</td>
+				<td>{{ product.status }}</td>
+				<td>{{ product.quantity }}</td>
+				<td><button (click)='editProduct()' class="btn btn-warning">Edit</button></td>
+				<td><button (click)='deleteProduct()' class="btn btn-danger">Delete</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
