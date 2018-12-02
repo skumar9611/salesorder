@@ -4,7 +4,7 @@
 			<tr *ngIf="salesOrder">
 				<td class="first-td">{{ salesOrder.id }}</td>
 				<td><input type="text" [(ngModel)] = "salesOrder.name"  [disabled]="!isEditable"></td>
-				<!-- <td><button (click)='viewSalesOrder()' class="btn btn-primary" (click)="toggle()">View</button></td> -->
+				<td><button (click)='viewSalesOrder()' class="btn btn-primary" (click)="toggle()">View</button></td>
 				<td><button (click)='deleteSalesOrder()' class="btn btn-danger">Delete</button></td> 
 				<td>
 					<button (click)="isEditable=!isEditable" class="btn btn-warning" *ngIf="!isEditable">Edit</button>

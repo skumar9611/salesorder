@@ -1,6 +1,6 @@
 import { Product } from './product';
 export class SalesOrder {
-    id: number;
+    id: string;
     name: string;
     products: Product[];
 }
