@@ -10,9 +10,7 @@ public class Product {
 	private int quantity;
 
 	
-	public Product() {
-
-	}
+	public Product() {	}
 
 	public Product(String productName, String type, String size, int price, boolean approved, int quantity) {
 

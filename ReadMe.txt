@@ -1,15 +1,32 @@
 Git:
 1. Clone the repository from https://github.com/skumar9611/salesorder
 
-Angular:
+MongoDB:
 
-1. Open cmd/ terminal in salesorder folder
-2. Execute the following:
-	ng new SalesOrder
-3. 
-
+1. Install MongoDB
+2. Set the path
 
 SpringBoot:
+
+Pre-requiste: Make sure maven is installed on the system and path is set.
+
+1. Open cmd or terminal in salesorder/salesproject folder
+2. Execute the following:
+	-	mvn install (or the equivalent command in linux/mac)
+	- mvn spring-boot:run(or the equivalent command in linux/mac)
+3. Can check the api calls at Go to localhost:8080/api/salesproject
+
+
+Angular:
+
+1. Open cmd or terminal in salesorder/angular folder
+2. Execute the following:
+	 -	npm install (or the equivalent command in linux/mac)
+   -  ng serve (or the equivalent command in linux/mac)
+3. Open a browser at http://localhost:4200
+
+
+
 
 1. Create a Maven Project with a name of SalesProject in a Package:com.orderapi.salesproject;
 2. Download dependency of Web,MongoDB and then Update the Maven Project.

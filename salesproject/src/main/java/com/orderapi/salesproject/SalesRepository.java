@@ -12,6 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface SalesRepository extends MongoRepository<SalesProduct,String> {
 
 	Optional<SalesProduct> findById(String id);
-
 	
 }
