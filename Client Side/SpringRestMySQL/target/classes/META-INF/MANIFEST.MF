@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: BlackPearl
+Build-Jdk: 10.0.2
+Implementation-Title: SpringRestMySQL
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.javasampleapproach
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring-boot-rest-mysql
+Created-By: Maven Integration for Eclipse
+
