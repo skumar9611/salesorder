@@ -16,6 +16,11 @@ Pre-requiste: Make sure maven is installed on the system and path is set.
 	- mvn spring-boot:run(or the equivalent command in linux/mac)
 3. Can check the api calls at Go to localhost:8080/api/salesproject
 
+			or
+
+1. Open Eclipse or Spring Tool Suite and import existing maven repository at the salesproject folder.
+2. Run as springboot app or java app.
+
 
 Angular:
 
@@ -26,7 +31,7 @@ Angular:
 3. Open a browser at http://localhost:4200
 
 
-
+Testing Spring:
 
 1. Create a Maven Project with a name of SalesProject in a Package:com.orderapi.salesproject;
 2. Download dependency of Web,MongoDB and then Update the Maven Project.
