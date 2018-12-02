@@ -3,6 +3,7 @@ package com.orderapi.salesproject;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/products")
 public class MyRestController {
+	@Autowired
 	private SalesRepository salesRepository;
 
 	public MyRestController(SalesRepository salesRepository) {
@@ -36,13 +38,13 @@ public class MyRestController {
 	public void insert(@RequestBody SalesProduct salesproduct) {
 		this.salesRepository.insert(salesproduct);
 	}
-
+	
 	@PostMapping
 	public void update(@RequestBody SalesProduct salesproduct) {
 		this.salesRepository.save(salesproduct);
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable("id") String id) {
 		this.salesRepository.deleteById(id);
 	}

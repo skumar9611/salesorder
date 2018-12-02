@@ -15,8 +15,7 @@ public class SalesProduct {
 		this.products = new ArrayList<>();
 	}
 
-	public SalesProduct(String id, List<Product> products) {
-		this.id = id;
+	public SalesProduct(List<Product> products) {
 		this.products = products;
 	}
 
@@ -26,6 +25,14 @@ public class SalesProduct {
 
 	public List<Product> getProducts() {
 		return products;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 }

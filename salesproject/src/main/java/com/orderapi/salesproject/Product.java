@@ -9,6 +9,7 @@ public class Product {
 	private boolean approved;
 	private int quantity;
 
+	
 	public Product() {
 
 	}
@@ -46,6 +47,30 @@ public class Product {
 	public int getQuantity() {
 		return quantity;
 	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 
 
 }
