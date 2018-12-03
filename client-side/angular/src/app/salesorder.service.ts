@@ -19,12 +19,16 @@ export class SalesOrderService {
     return this.http.post(`${this.baseUrl}` + `/create`, salesorder);
   }
 
-  updateSalesOrder(id: string, name: string): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, `${this.baseUrl}/${name}`);
+  updateSalesOrder(id: string, name: string,salesorder: Object): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}/${name}`, salesorder);
   }
 
   deleteSalesOrder(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+
+   getProduct(id: string): Observable<Object> {
+    return this.http.get(`${this.baseUrl}/products/${id}`);
   }
 
   getSalesOrderList(): Observable<any> {
@@ -35,7 +39,9 @@ export class SalesOrderService {
     return this.http.delete(`${this.baseUrl}` + `/delete`, { responseType: 'text' });
   }
 
-  getProducts(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  updateSalesProduct(id: string,salesorder: Object): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/updateProd/${id}`, salesorder);
   }
+
+
 }

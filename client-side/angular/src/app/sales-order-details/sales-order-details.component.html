@@ -1,39 +1,59 @@
 <div>
 	<table>
 		<tbody>
-			<tr *ngIf="salesOrder">
+			<tr *ngIf="salesOrder" class="allSalesOrders">
 				<td class="first-td">{{ salesOrder.id }}</td>
-				<td><input type="text" [(ngModel)] = "salesOrder.name"  [disabled]="!isEditable"></td>
+				<td><input type="text" id = "salesName" [(ngModel)] = "salesOrder.name"  [disabled]="!isEditable" [ngStyle]="{'border':!isEditable === true ? 'none' : '2px solid steelblue' }"></td>
 				<td><button (click)='viewSalesOrder()' class="btn btn-primary" (click)="toggle()">View</button></td>
 				<td><button (click)='deleteSalesOrder()' class="btn btn-danger">Delete</button></td> 
 				<td>
 					<button (click)="isEditable=!isEditable" class="btn btn-warning" *ngIf="!isEditable">Edit</button>
 					<button *ngIf="isEditable" (click)='saveSalesOrder()' class="btn btn-success">Save</button>
 				</td>
-				<td><span *ngIf="isEditable">Click and edit the required field.</span></td>
+				<td><button *ngIf="isEditable" (click)='cancelEdit()' class="btn btn-default" >Cancel</button></td>
+				<td>
+					<button (click)='addSalesProduct()' *ngIf="addBtn" class="btn btn-success" >Add product</button>
+					<button (click)='cancelAddSalesProduct()' *ngIf="cancel" class="btn btn-default" >Cancel Add</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
 <ng-container *ngIf="show">
-<div class="expanded-table">
-	<table>
-		<thead>
-			<tr>
-				<th>Product Name</th>
-				<th>Type</th>
-				<th>Size</th>
-				<th>Price</th>
-				<th>Status</th>
-				<th>Quantity</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>
-		</thead>
-	</table>
-	<div *ngFor="let product of salesOrders.products | async" class="product-div">
-	  <product-details [product]='product'></product-details>
+	<div class="expanded-table">
+		<table>
+			<thead>
+				<tr>
+					<th>Product Name</th>
+					<th>Type</th>
+					<th>Size</th>
+					<th>Price</th>
+					<th>Status</th>
+					<th>Quantity</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+		</table>
+		<div *ngFor="let product of products" class="product-div">
+		<product-details [product]='product'></product-details>
+		</div>
 	</div>
-	<a href="http://localhost:8080/api/salesorder/">http://localhost:8080/api/salesorder/--enter id here--</a>
-</div>
+</ng-container>
+<ng-container *ngIf="add">
+	<div class="productInputs">
+		<table>
+			<tbody>
+				<tr class = "addProductDetails">
+					<td><input type="text" [(ngModel)]="productAdd.productName" placeholder="Name"></td>
+					<td><input type="text" [(ngModel)]="productAdd.type" placeholder="Type"></td>
+					<td><input type="number" [(ngModel)]="productAdd.size" placeholder="Size"></td>
+					<td><input type="number" [(ngModel)]="productAdd.price" placeholder="Price"></td>
+					<td><input type="checkbox" [(ngModel)]="productAdd.approved" placeholder="Approved"></td>
+					<td><input type="number" [(ngModel)]="productAdd.quantity" placeholder="Quantity"></td>
+					<td><button class="btn btn-success" (click)="addNewProduct()">Save</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </ng-container>

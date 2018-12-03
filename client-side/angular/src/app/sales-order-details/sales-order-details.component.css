@@ -1,10 +1,10 @@
-tr td:nth-child(-n+2)
+.allSalesOrders  td:nth-child(-n+2)
 {
 	min-width: 300px;
 	padding: 5px;
 	margin: 5px;
 }
-tr td:nth-child(n+3)
+.allSalesOrders  td:nth-child(n+3)
 {
 	padding: 5px;
 	margin: 5px;
@@ -33,7 +33,7 @@ tr th:first-child
 {
 	min-width: 150px;
 }
-input
+#salesName
 {
     border:none;
     background-image:none;
@@ -41,4 +41,10 @@ input
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+}
+.addProductDetails td 
+{
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid grey;
 }

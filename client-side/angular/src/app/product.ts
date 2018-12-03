@@ -1,8 +1,8 @@
 export class Product {
-    name: string;
+    productName: string;
     type: string;
     size: string;
-    price: string;
-    approved: string;
-    quantity: string;
+    price: number;
+    approved: boolean;
+    quantity: number;
 }

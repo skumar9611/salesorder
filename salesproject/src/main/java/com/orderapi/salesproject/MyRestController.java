@@ -37,22 +37,20 @@ public class MyRestController {
 		List<SalesProduct> salesproducts = this.salesRepository.findAll();
 		return salesproducts;
 	}
+	
+	@GetMapping("/salesorder/products/{id}")
+	public List<Product> getProdById(@PathVariable("id") String id) {
+		Optional<SalesProduct> salesproducts = this.salesRepository.findById(id);
+		List<Product> products = salesproducts.get().getProducts();
+		return products;
+	}
 
-	@PutMapping("/salesorder/{id,name}")
+	@PutMapping("/salesorder/{id}/{name}")
 	public void insert(@PathVariable("id") String id,@PathVariable("name") String name) {
-		//this.salesRepository.save(salesproduct);
-	//	Query query = new Query();
-	//	query.addCriteria(Criteria.where("id").is(id));
-
-		//SalesProduct prod = this.salesRepository.findOne(query, SalesProduct.class);
-
-		//modify and update with save()
-		//prod.setName(name);
-	//	this.salesRepository.save(prod);
-		SalesProduct prod = new SalesProduct();
-		prod.setId(id);
-		prod.setName(name);
-		this.salesRepository.save(prod);
+		Optional<SalesProduct> prods = this.salesRepository.findById(id);
+		prods.get().setId(id);
+		prods.get().setName(name);
+		this.salesRepository.save(prods.get());
 
 	}
 	
