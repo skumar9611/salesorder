@@ -17,6 +17,7 @@ export class SalesOrderDetailsComponent implements OnInit {
   show: boolean;
   cancel: boolean;
   addBtn: boolean;
+  add: boolean;
   isEditable: boolean = false;
   products: Observable<Object>;
   productAdd: Product = new Product();
@@ -42,10 +43,8 @@ export class SalesOrderDetailsComponent implements OnInit {
 
   viewSalesOrder() 
   {
-    this.salesOrderService.getSalesOrder(this.salesOrder.id).subscribe(
-        data => {  },
-        error => console.log(error));
-    this.products=this.salesOrder.products;
+    this.salesOrderService.getSalesOrder(this.salesOrder.id);
+	this.products=this.salesOrder.products;
 	this.addBtn=!this.addBtn;
   }
 

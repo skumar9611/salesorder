@@ -69,5 +69,13 @@ public class MyRestController {
 		Optional<SalesProduct> saleproduct = this.salesRepository.findById(id);
 		return saleproduct;
 	}
+	
+	@PutMapping("/salesorder/edit/{id}")
+	public void edit(@PathVariable("id") String id,@RequestBody SalesProduct salesproduct) {
+		Optional<SalesProduct> prods = this.salesRepository.findById(id);
+		prods.get().setProducts(salesproduct.getProducts());
+		this.salesRepository.save(prods.get());
+		
+	}
 
 }
