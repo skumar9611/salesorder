@@ -24,19 +24,19 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Product Name</th>
-					<th>Type</th>
-					<th>Size</th>
-					<th>Price</th>
-					<th>Status</th>
-					<th>Quantity</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Product Name" [disabled]=true></th>
+					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Type" [disabled]=true></th>					
+					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Size" [disabled]=true></th>
+					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Price" [disabled]=true></th>
+					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Status" [disabled]=true></th>
+					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Quantity" [disabled]=true></th>
+					<th class = "prodTableHeader" ><button class="prodHeadButton" [disabled]=true >Edit</button></th>
+					<th class = "prodTableHeader" ><button class="prodHeadButton" [disabled]=true >Delete</button></th>
 				</tr>
 			</thead>
 		</table>
 		<div *ngFor="let product of products" class="product-div">
-		<product-details [product]='product'></product-details>
+		<product-details [product]='product' [salesId]='this.salesOrder.id'></product-details>
 		</div>
 	</div>
 </ng-container>

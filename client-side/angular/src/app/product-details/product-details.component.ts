@@ -14,13 +14,13 @@ import { SalesOrderDetailsComponent } from '../sales-order-details/sales-order-d
 export class ProductDetailsComponent implements OnInit {
 
 	@Input() product: Product;
+  @Input() salesId: string;
 	salesOrder: SalesOrder;
 	isEdit: boolean;
 
   constructor(private salesOrderService: SalesOrderService, private listComponent: SalesOrderDetailsComponent) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
   editProduct()
   {

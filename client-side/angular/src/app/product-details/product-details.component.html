@@ -1,13 +1,13 @@
 <div>
 	<table>
 		<tbody>
-			<tr *ngIf="product">
-				<td><input type="text" id = "productName" [(ngModel)] = "product.productName"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>				
-				<td>{{ product.type }}</td>
-				<td>{{ product.size }}</td>
-				<td>{{ product.price }}</td>
-				<td>{{ product.approved }}</td>
-				<td>{{ product.quantity }}</td>
+			<tr *ngIf="product" class="allProdFields">
+				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.productName"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>				
+				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.type"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
+				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.size"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
+				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.price"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
+				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.approved"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
+				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.quantity"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
 				<td>
 					<button *ngIf="!isEdit" (click)="isEdit=!isEdit"  class="btn btn-warning">Edit</button>
 					<button *ngIf="isEdit" (click)="saveEditProduct()" class="btn btn-success">Save</button>

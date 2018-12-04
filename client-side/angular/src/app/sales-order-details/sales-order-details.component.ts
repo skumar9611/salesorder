@@ -13,7 +13,7 @@ import { SalesOrderListComponent } from '../sales-order-list/sales-order-list.co
 })
 export class SalesOrderDetailsComponent implements OnInit {
 
-	@Input() salesOrder: SalesOrder;
+  @Input() salesOrder: SalesOrder;
   show: boolean;
   cancel: boolean;
   addBtn: boolean;
