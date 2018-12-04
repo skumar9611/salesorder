@@ -14,7 +14,7 @@ import { SalesOrderDetailsComponent } from '../sales-order-details/sales-order-d
 export class ProductDetailsComponent implements OnInit {
 
 	@Input() product: Product;
-  @Input() salesId: string;
+    @Input() salesId: string;
 	salesOrder: SalesOrder;
 	isEdit: boolean;
 
@@ -29,7 +29,12 @@ export class ProductDetailsComponent implements OnInit {
 
   deleteProduct()
   {
-  	console.log("Delete clicked");
+  	this.salesOrderService.deleteProduct(this.salesId,this.product.id).subscribe(
+        data => {
+          console.log(data);
+        },
+        error => console.log(error));		
+	window.location.reload();
   }
   
   saveEditProduct()

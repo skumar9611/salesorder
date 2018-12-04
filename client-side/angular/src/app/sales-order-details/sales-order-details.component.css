@@ -4,19 +4,36 @@
 	padding: 5px;
 	margin: 5px;
 }
+.allSalesOrders  td:first-child
+{
+	border-left: 1px solid grey;
+}
+.allSalesOrders  td:last-child
+{
+	border-right: 1px solid grey;
+}
+.allSalesOrders:last-child td
+{
+	border-bottom: 1px solid grey;
+}
+.allSalesOrders:first-child td
+{
+	border-top: 1px solid grey;
+}
 .allSalesOrders  td:nth-child(n+3)
 {
 	padding: 5px;
 	margin: 5px;
 }
-.first-td
+.expanded-table table
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+}
+.allSalesOrders td:nth-child(-n+2)
 {
 	border-right: 1px solid grey;
-}
-.expanded-table
-{
-	border: 1px solid black;
-	margin: 10px auto;
 }
 #salesName
 {
@@ -49,10 +66,6 @@
 	padding: 5px;
 	margin: 5px;
 }
-.prodHeaders:not(:last-child)
-{
-	border-right: 1px solid grey;
-}
 .prodHeaders:first-child
 {
 	min-width: 150px;
@@ -63,11 +76,10 @@
 	width: 12.5%;
 	padding: 5px;
 	margin: 5px;
-	border-bottom: 2px solid grey;
 }
 .prodTableHeader:not(:last-child)
 {
-	border-right: 1px solid grey;
+	border-right: 1px solid black;
 }
 .prodTableHeader:first-child
 {
@@ -76,5 +88,12 @@
 table
 {
 	max-width: 100%;
+}
+
+.prodHeadButton
+{
+	padding: 6px 12px;
+	margin: 0;
+	font-size: 14px;
 }
 

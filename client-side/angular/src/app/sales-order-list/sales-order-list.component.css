@@ -1,6 +1,5 @@
 .list-page
 {
-	border: 2px solid black;
 	padding: 10px;
 }
 tr th
@@ -8,9 +7,31 @@ tr th
 	min-width: 300px;
 	padding: 5px;
 	margin: 5px;
-	border-bottom: 1px solid grey;
 }
 tr th:first-child
 {
-	border-right: 1px solid grey;
+	border-right: 1px solid black;
+}
+#headingTag
+{
+	border-bottom: 1px solid black;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+.salesHeaders th
+{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+table
+{
+	margin-bottom: 5px;
+}
+.salesHeaders th:first-child
+{
+	border-left: 1px solid black;
+}
+.salesHeaders th:last-child
+{
+	border-right: 1px solid black;
 }

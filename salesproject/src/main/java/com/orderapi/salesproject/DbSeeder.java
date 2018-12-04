@@ -22,13 +22,13 @@ public class DbSeeder implements CommandLineRunner {
 
 	@Override
 	public void run(String...strings) throws Exception{
-		SalesProduct prod1=new SalesProduct("Sale 1",	Arrays.asList(new Product("Louis Phillipe", "Shirt", "M", 1224, true, 2),
+	/*	SalesProduct prod1=new SalesProduct("Sale 1",	Arrays.asList(new Product("Louis Phillipe", "Shirt", "M", 1224, true, 2),
 						new Product("Arrows", "T-Shirt", "M", 2224, true, 1)));
 		SalesProduct prod2=new SalesProduct("Sale 2",Arrays.asList(new Product("Louis Phillipe", "Shirt", "M", 1224, false, 2),
 						new Product("Arrows", "T-Shirt", "M", 2224, true, 4)));
 	
 	List<SalesProduct> customers = Arrays.asList(prod1,prod2);
-	this.saleRepository.saveAll(customers);
+	this.saleRepository.saveAll(customers);*/
 	}
 	
 	

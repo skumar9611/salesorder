@@ -42,6 +42,14 @@ export class SalesOrderService {
   updateSalesProduct(id: string,salesorder: Object): Observable<Object> {
     return this.http.put(`${this.baseUrl}/updateProd/${id}`, salesorder);
   }
+  
+  createProduct(id: string, product: Object): Observable<Object> {
+	  return this.http.put(`${this.baseUrl}/createProduct/${id}`,product);
+  }
+  
+  deleteProduct(id: string, pid: string): Observable<Object> {
+	  return this.http.put(`${this.baseUrl}/deleteProduct/${id}/${pid}`,pid);
+  }
 
 
 }

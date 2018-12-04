@@ -11,6 +11,7 @@ public class SalesProduct {
 	private String id;
 	private String name; 
 	private List<Product> products;
+	private int listIdGen;
 
 	public SalesProduct() {
 		this.products = new ArrayList<>();
@@ -19,6 +20,7 @@ public class SalesProduct {
 	public SalesProduct(String name,List<Product> products) {
 		this.name = name;
 		this.products = products;
+		listIdGen=0;
 	}
 
 	public String getId() {
@@ -33,6 +35,10 @@ public class SalesProduct {
 		return products;
 	}
 
+	public int getListIdGen() {
+		return listIdGen;
+	}
+	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -43,6 +49,28 @@ public class SalesProduct {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+	
+	public int setListIdGen() {
+		this.listIdGen = this.listIdGen+1;
+		return this.listIdGen;
+	}
+	
+	public void addProduct(Product product)	{
+		this.products.add(product);
+	}
+	
+	public void deleteProduct(String pid)	{
+		int index=-1;
+		for(int i = 0 ; i < products.size() ; i++)
+		{
+			if(products.get(i).getId().equals(pid))
+			{
+				index=i;
+				break;
+			}
+		}
+		this.products.remove(index);		
 	}
 
 }

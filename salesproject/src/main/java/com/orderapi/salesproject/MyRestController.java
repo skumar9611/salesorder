@@ -51,7 +51,6 @@ public class MyRestController {
 		prods.get().setId(id);
 		prods.get().setName(name);
 		this.salesRepository.save(prods.get());
-
 	}
 	
 	@PostMapping(value = "/salesorder/create")
@@ -74,8 +73,22 @@ public class MyRestController {
 	public void edit(@PathVariable("id") String id,@RequestBody SalesProduct salesproduct) {
 		Optional<SalesProduct> prods = this.salesRepository.findById(id);
 		prods.get().setProducts(salesproduct.getProducts());
-		this.salesRepository.save(prods.get());
-		
+		this.salesRepository.save(prods.get());		
+	}
+	
+	@PutMapping(value = "/salesorder/createProduct/{id}")
+	public void insertProd(@PathVariable("id") String id,@RequestBody Product product) {
+		Optional<SalesProduct> saleOrder = this.salesRepository.findById(id);
+		product.setId(id+Integer.toString(saleOrder.get().setListIdGen()));
+		saleOrder.get().addProduct(product);
+		this.salesRepository.save(saleOrder.get());
+	}
+	
+	@PutMapping(value = "/salesorder/deleteProduct/{id}/{pid}")
+	public void deleteProd(@PathVariable("id") String id,@PathVariable("pid") String pid) {
+		Optional<SalesProduct> saleOrder = this.salesRepository.findById(id);
+		saleOrder.get().deleteProduct(pid);
+		this.salesRepository.save(saleOrder.get());
 	}
 
 }

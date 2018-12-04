@@ -3,6 +3,7 @@ import { SalesOrderService } from '../salesorder.service';
 import { SalesOrder } from '../salesorder';
 import { Product } from '../product';
 import { Observable } from 'rxjs';
+//import { ProductDetailsComponent } from '../product-details/product-details.component';
 
 import { SalesOrderListComponent } from '../sales-order-list/sales-order-list.component';
 
@@ -18,13 +19,14 @@ export class SalesOrderDetailsComponent implements OnInit {
   cancel: boolean;
   addBtn: boolean;
   add: boolean;
+  tempName: string;
   isEditable: boolean = false;
   products: Observable<Object>;
   productAdd: Product = new Product();
 
   constructor(private salesOrderService: SalesOrderService, private listComponent: SalesOrderListComponent) { }
 
-  ngOnInit() {  }
+  ngOnInit() {    }
 
   toggle() 
   {
@@ -40,7 +42,12 @@ export class SalesOrderDetailsComponent implements OnInit {
         },
         error => console.log(error));
   }
-
+	
+  editSalesOrder()
+  {
+	  this.isEditable = !this.isEditable;
+	  this.tempName = this.salesOrder.name;
+  }
   viewSalesOrder() 
   {
     this.salesOrderService.getSalesOrder(this.salesOrder.id);
@@ -65,7 +72,7 @@ export class SalesOrderDetailsComponent implements OnInit {
 
   cancelEdit()
   {
-    this.listComponent.reloadData();
+	  this.salesOrder.name=this.tempName;
     this.isEditable=!this.isEditable;  
   }
   
@@ -84,7 +91,14 @@ export class SalesOrderDetailsComponent implements OnInit {
 	
   addNewProduct()
   {
-	  console.log(this.salesOrder);
-	  this.cancelAddSalesProduct();
+      this.salesOrderService.createProduct(this.salesOrder.id,this.productAdd).subscribe(
+        data => {
+          console.log(data);
+        },
+        error => console.log(error));
+	  this.add=!this.add;
+	  this.addBtn=!this.addBtn;
+	  this.cancel=!this.cancel;
+	  window.location.reload();
   }
 }

@@ -2,12 +2,12 @@
 	<table>
 		<tbody>
 			<tr *ngIf="salesOrder" class="allSalesOrders">
-				<td class="first-td">{{ salesOrder.id }}</td>
+				<td>{{ salesOrder.id }}</td>
 				<td><input type="text" id = "salesName" [(ngModel)] = "salesOrder.name"  [disabled]="!isEditable" [ngStyle]="{'border':!isEditable === true ? 'none' : '2px solid steelblue' }"></td>
 				<td><button (click)='viewSalesOrder()' class="btn btn-primary" (click)="toggle()">View</button></td>
 				<td><button (click)='deleteSalesOrder()' class="btn btn-danger">Delete</button></td> 
 				<td>
-					<button (click)="isEditable=!isEditable" class="btn btn-warning" *ngIf="!isEditable">Edit</button>
+					<button (click)="editSalesOrder()" class="btn btn-warning" *ngIf="!isEditable">Edit</button>
 					<button *ngIf="isEditable" (click)='saveSalesOrder()' class="btn btn-success">Save</button>
 				</td>
 				<td><button *ngIf="isEditable" (click)='cancelEdit()' class="btn btn-default" >Cancel</button></td>
@@ -47,7 +47,7 @@
 				<tr class = "addProductDetails">
 					<td><input type="text" [(ngModel)]="productAdd.productName" placeholder="Name"></td>
 					<td><input type="text" [(ngModel)]="productAdd.type" placeholder="Type"></td>
-					<td><input type="number" [(ngModel)]="productAdd.size" placeholder="Size"></td>
+					<td><input type="string" [(ngModel)]="productAdd.size" placeholder="Size"></td>
 					<td><input type="number" [(ngModel)]="productAdd.price" placeholder="Price"></td>
 					<td><input type="checkbox" [(ngModel)]="productAdd.approved" placeholder="Approved"></td>
 					<td><input type="number" [(ngModel)]="productAdd.quantity" placeholder="Quantity"></td>
