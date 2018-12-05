@@ -3,7 +3,6 @@ import { SalesOrderService } from '../salesorder.service';
 import { Product } from '../product';
 import { SalesOrder } from '../salesorder';
 
-
 import { SalesOrderDetailsComponent } from '../sales-order-details/sales-order-details.component';
 
 @Component({
@@ -16,6 +15,12 @@ export class ProductDetailsComponent implements OnInit {
 	@Input() product: Product;
     @Input() salesId: string;
 	salesOrder: SalesOrder;
+	tempProdProdName: string;
+	tempProdType: string;
+	tempProdSize: string;
+	tempProdPrice: number;
+	tempProdApproved: boolean;
+	tempProdQuantity: number;
 	isEdit: boolean;
 
   constructor(private salesOrderService: SalesOrderService, private listComponent: SalesOrderDetailsComponent) { }
@@ -24,7 +29,13 @@ export class ProductDetailsComponent implements OnInit {
 
   editProduct()
   {
-  	console.log("Edit clicked");
+	this.tempProdProdName = this.product.productName;
+	this.tempProdType = this.product.type;
+	this.tempProdSize = this.product.size;
+	this.tempProdPrice = this.product.price;
+	this.tempProdApproved = this.product.approved;
+	this.tempProdQuantity = this.product.quantity;
+	this.isEdit = !this.isEdit;
   }
 
   deleteProduct()
@@ -40,14 +51,21 @@ export class ProductDetailsComponent implements OnInit {
   saveEditProduct()
   {
 	this.isEdit=!this.isEdit;
-	//salesOrder=this.salesOrderService.getSalesOrder("5c053339f003a61474583bdb");
-	//salesOrder.product
-   // this.salesOrderService.updateSalesProduct(this.salesOrder.id,this.product).subscribe(
-   //     data => {
-  //        console.log(data);
-  //      },
-  //      error => console.log(error));
+	this.salesOrderService.updateSalesProduct(this.salesId,this.product).subscribe(
+        data => {        },
+        error => console.log(error));
   }
-
+	
+  cancelEditProduct()
+  {
+	this.product.productName = this.tempProdProdName;
+	this.product.type = this.tempProdType;
+	this.product.size = this.tempProdSize;
+	this.product.price = this.tempProdPrice;
+	this.product.approved = this.tempProdApproved;
+	this.product.quantity = this.tempProdQuantity;
+	this.isEdit=!this.isEdit;
+	  
+  }
 
 }

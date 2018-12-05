@@ -3,7 +3,6 @@ import { SalesOrderService } from '../salesorder.service';
 import { SalesOrder } from '../salesorder';
 import { Product } from '../product';
 import { Observable } from 'rxjs';
-//import { ProductDetailsComponent } from '../product-details/product-details.component';
 
 import { SalesOrderListComponent } from '../sales-order-list/sales-order-list.component';
 
@@ -72,7 +71,7 @@ export class SalesOrderDetailsComponent implements OnInit {
 
   cancelEdit()
   {
-	  this.salesOrder.name=this.tempName;
+	this.salesOrder.name=this.tempName;
     this.isEditable=!this.isEditable;  
   }
   
@@ -100,5 +99,9 @@ export class SalesOrderDetailsComponent implements OnInit {
 	  this.addBtn=!this.addBtn;
 	  this.cancel=!this.cancel;
 	  window.location.reload();
+  }
+  reloadData(id: string) 
+  {
+      this.products = this.salesOrderService.getProduct(id);
   }
 }

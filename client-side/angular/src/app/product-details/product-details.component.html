@@ -2,16 +2,17 @@
 	<table>
 		<tbody>
 			<tr *ngIf="product" class="allProdFields">
-				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.productName"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>				
-				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.type"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
-				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.size"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
-				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.price"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
-				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.approved"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
-				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.quantity"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
+				<td><input class = "inputField" type="text" id = "productName" [(ngModel)] = "product.productName" [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>				
+				<td><input class = "inputField" type="text" id = "productType" [(ngModel)] = "product.type"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
+				<td><input class = "inputField" type="text" id = "productSize" [(ngModel)] = "product.size"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
+				<td><input class = "inputField" type="number" id = "productPrice" [(ngModel)] = "product.price"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
+				<td><input class = "inputField" type="checkbox" id = "productApproved" [(ngModel)] = "product.approved"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
+				<td><input class = "inputField" type="number" id = "productQuant" [(ngModel)] = "product.quantity"  [disabled]="!isEdit" [ngStyle]="{'border':!isEdit === true ? 'none' : '2px solid steelblue' }"></td>
 				<td>
-					<button *ngIf="!isEdit" (click)="isEdit=!isEdit"  class="btn btn-warning">Edit</button>
+					<button *ngIf="!isEdit" (click)="editProduct()"  class="btn btn-warning">Edit</button>
 					<button *ngIf="isEdit" (click)="saveEditProduct()" class="btn btn-success">Save</button>
 				</td>
+				<td><button *ngIf="isEdit" (click)="cancelEditProduct()" class="btn btn-default">Cancel</button></td>
 				<td><button (click)='deleteProduct()' class="btn btn-danger">Delete</button></td>
 			</tr>
 		</tbody>

@@ -34,14 +34,6 @@ export class SalesOrderService {
   getSalesOrderList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
-
-  deleteAll(): Observable<any> {
-    return this.http.delete(`${this.baseUrl}` + `/delete`, { responseType: 'text' });
-  }
-
-  updateSalesProduct(id: string,salesorder: Object): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/updateProd/${id}`, salesorder);
-  }
   
   createProduct(id: string, product: Object): Observable<Object> {
 	  return this.http.put(`${this.baseUrl}/createProduct/${id}`,product);
@@ -51,5 +43,8 @@ export class SalesOrderService {
 	  return this.http.put(`${this.baseUrl}/deleteProduct/${id}/${pid}`,pid);
   }
 
+  updateSalesProduct(id: string, product: Object): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/updateProd/${id}`, product);
+  }
 
 }

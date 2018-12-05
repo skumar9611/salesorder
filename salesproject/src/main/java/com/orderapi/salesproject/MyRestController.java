@@ -37,12 +37,16 @@ public class MyRestController {
 		List<SalesProduct> salesproducts = this.salesRepository.findAll();
 		return salesproducts;
 	}
+
+	@GetMapping("/salesorder/{id}")
+	public Optional<SalesProduct> getById(@PathVariable("id") String id) {
+		Optional<SalesProduct> saleproduct = this.salesRepository.findById(id);
+		return saleproduct;
+	}
 	
-	@GetMapping("/salesorder/products/{id}")
-	public List<Product> getProdById(@PathVariable("id") String id) {
-		Optional<SalesProduct> salesproducts = this.salesRepository.findById(id);
-		List<Product> products = salesproducts.get().getProducts();
-		return products;
+	@PostMapping(value = "/salesorder/create")
+	public void update(@RequestBody SalesProduct salesproduct) {
+		this.salesRepository.save(salesproduct);
 	}
 
 	@PutMapping("/salesorder/{id}/{name}")
@@ -53,27 +57,16 @@ public class MyRestController {
 		this.salesRepository.save(prods.get());
 	}
 	
-	@PostMapping(value = "/salesorder/create")
-	public void update(@RequestBody SalesProduct salesproduct) {
-		this.salesRepository.save(salesproduct);
-	}
-	
 	@DeleteMapping("/salesorder/{id}")
 	public void delete(@PathVariable("id") String id) {
 		this.salesRepository.deleteById(id);
 	}
-
-	@GetMapping("/salesorder/{id}")
-	public Optional<SalesProduct> getById(@PathVariable("id") String id) {
-		Optional<SalesProduct> saleproduct = this.salesRepository.findById(id);
-		return saleproduct;
-	}
 	
-	@PutMapping("/salesorder/edit/{id}")
-	public void edit(@PathVariable("id") String id,@RequestBody SalesProduct salesproduct) {
-		Optional<SalesProduct> prods = this.salesRepository.findById(id);
-		prods.get().setProducts(salesproduct.getProducts());
-		this.salesRepository.save(prods.get());		
+	@GetMapping("/salesorder/products/{id}")
+	public List<Product> getProdById(@PathVariable("id") String id) {
+		Optional<SalesProduct> salesproducts = this.salesRepository.findById(id);
+		List<Product> products = salesproducts.get().getProducts();
+		return products;
 	}
 	
 	@PutMapping(value = "/salesorder/createProduct/{id}")
@@ -89,6 +82,13 @@ public class MyRestController {
 		Optional<SalesProduct> saleOrder = this.salesRepository.findById(id);
 		saleOrder.get().deleteProduct(pid);
 		this.salesRepository.save(saleOrder.get());
+	}
+	
+	@PutMapping("/salesorder/updateProd/{id}")
+	public void updateProd(@PathVariable("id") String id,@RequestBody Product product) {
+		Optional<SalesProduct> salesOrder = this.salesRepository.findById(id);
+		salesOrder.get().editProd(product);
+		this.salesRepository.save(salesOrder.get());		
 	}
 
 }

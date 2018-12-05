@@ -72,5 +72,19 @@ public class SalesProduct {
 		}
 		this.products.remove(index);		
 	}
+	
+	public void editProd(Product product)
+	{
+		int index=-1;
+		for(int i = 0 ; i < products.size() ; i++)
+		{
+			if(products.get(i).getId().equals(product.getId()))
+			{
+				index=i;
+				break;
+			}
+		}
+		this.products.set(index,product);
+	}
 
 }
