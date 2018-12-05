@@ -17,7 +17,6 @@ export class ProductDetailsComponent implements OnInit {
 	salesOrder: SalesOrder;
 	tempProdProdName: string;
 	tempProdType: string;
-	tempProdSize: string;
 	tempProdPrice: number;
 	tempProdApproved: boolean;
 	tempProdQuantity: number;
@@ -31,7 +30,6 @@ export class ProductDetailsComponent implements OnInit {
   {
 	this.tempProdProdName = this.product.productName;
 	this.tempProdType = this.product.type;
-	this.tempProdSize = this.product.size;
 	this.tempProdPrice = this.product.price;
 	this.tempProdApproved = this.product.approved;
 	this.tempProdQuantity = this.product.quantity;
@@ -60,7 +58,6 @@ export class ProductDetailsComponent implements OnInit {
   {
 	this.product.productName = this.tempProdProdName;
 	this.product.type = this.tempProdType;
-	this.product.size = this.tempProdSize;
 	this.product.price = this.tempProdPrice;
 	this.product.approved = this.tempProdApproved;
 	this.product.quantity = this.tempProdQuantity;

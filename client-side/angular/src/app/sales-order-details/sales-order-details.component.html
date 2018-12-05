@@ -25,8 +25,7 @@
 			<thead>
 				<tr>
 					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Product Name" [disabled]=true></th>
-					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Type" [disabled]=true></th>					
-					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Size" [disabled]=true></th>
+					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Type" [disabled]=true></th>
 					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Price" [disabled]=true></th>
 					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Approved" [disabled]=true></th>
 					<th class = "prodTableHeader" ><input class = "prodHeaders" type="text" value="Quantity" [disabled]=true></th>
@@ -47,7 +46,6 @@
 				<tr class = "addProductDetails">
 					<td><input type="text" [(ngModel)]="productAdd.productName" placeholder="Name"></td>
 					<td><input type="text" [(ngModel)]="productAdd.type" placeholder="Type"></td>
-					<td><input type="string" [(ngModel)]="productAdd.size" placeholder="Size"></td>
 					<td><input type="number" [(ngModel)]="productAdd.price" placeholder="Price"></td>
 					<td><input type="checkbox" [(ngModel)]="productAdd.approved" placeholder="Approved"></td>
 					<td><input type="number" [(ngModel)]="productAdd.quantity" placeholder="Quantity"></td>

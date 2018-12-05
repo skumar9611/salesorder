@@ -40,3 +40,7 @@ table
 {
 	max-width: 100%;
 }
+td button
+{
+	margin-right: 5px;
+}
